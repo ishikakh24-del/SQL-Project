@@ -1,2 +1,2 @@
-# sql-project to analyze data
+# SQL-Project to analyze data
 
