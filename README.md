@@ -1,2 +1,2 @@
-# sql-practice
-"Tracking my SQL learning progress with solutions to practice problems."
+# sql-project to analyze data
+
