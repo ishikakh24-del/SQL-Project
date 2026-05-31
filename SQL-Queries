@@ -1,1 +1,62 @@
+--EASY Question Set
+
+
+--Q1: Who is senior most employee based on job title?
+
+SELECT 
+first_name,
+last_name,
+title
+FROM employee
+ORDER BY levels DESC
+LIMIT 1;
+
+--Q2: Which countries have the most invoices?
+
+SELECT 
+billing_country, 
+COUNT(invoice_id) AS total
+FROM invoice
+GROUP BY billing_country
+ORDER BY total DESC;
+
+--Q3: What are the top 3 values of total invoice?
+
+SELECT 
+total 
+FROM invoice
+ORDER BY total DESC
+LIMIT 3;
+
+-- Q4: Which city has best customers? We would like to throw a promotional Music festival in the city we made
+-- the most money. Write a query that returns one city that has the highest sum of invoice totals.
+-- Return both the city name & sum of all invoice totals
+
+SELECT 
+billing_city,
+SUM(total) as total_invoice
+FROM invoice
+GROUP BY billing_city
+ORDER BY total_invoice DESC
+LIMIT 1;
+
+--Q5: Who is the best customer with highest spent money? 
+
+SELECT 
+c.customer_id,
+c.first_name,
+c.last_name,
+SUM(i.total) as total_spent
+FROM customer AS c
+INNER JOIN invoice AS i
+ON c.customer_id = i.customer_id
+GROUP BY c.customer_id
+ORDER BY total_spent DESC
+LIMIT 1;
+
+
+
+
+
+--MODERATE
 
